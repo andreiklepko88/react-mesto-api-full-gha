@@ -1,0 +1,22 @@
+.register__button {
+    font-family: 'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.21;
+    color: #000;
+    background-color: #fff;
+    position: relative;
+    margin-top: 218px;
+    width: 358px;
+    height: 50px;
+    border: none;
+    border-radius: 2px;
+    padding: 0;
+}
+
+.register__button:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+

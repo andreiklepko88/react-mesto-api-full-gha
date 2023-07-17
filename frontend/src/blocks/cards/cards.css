@@ -1,0 +1,6 @@
+.cards {
+    margin: 0 auto;
+    box-sizing: border-box;
+    max-width: 880px;
+    min-width: 320px;
+}

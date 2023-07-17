@@ -1,0 +1,6 @@
+.tooltip__figure {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 210px;
+}
