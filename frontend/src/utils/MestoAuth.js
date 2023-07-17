@@ -62,6 +62,6 @@ class MestoApi {
 
 
 export const mestoApi = new MestoApi({
-    baseUrl: 'http://localhost:4000',
+    baseUrl: 'https://api.mestoproject-klepkoas.nomoredomains.xyz',
     headers: { 'Content-Type': 'application/json' }
 })
