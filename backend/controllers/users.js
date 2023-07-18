@@ -103,6 +103,7 @@ const login = (req, res, next) => {
             maxAge: 64000000,
             httpOnly: true,
             sameSite: 'None',
+            secure: true,
           });
           return res.status(OK_CODE).send({ token });
         });
@@ -160,6 +161,7 @@ const logOut = (req, res) => {
   res.status(OK_CODE)
     .clearCookie('jwt', {
       sameSite: 'None',
+      secure: true,
     })
     .send({ message: 'Logged out successfully' });
 };
