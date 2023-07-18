@@ -11,7 +11,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 158.160.19.196
+IP 158.160.19.196
 
 Frontend https://mestoproject-klepkoas.nomoredomains.xyz
 
