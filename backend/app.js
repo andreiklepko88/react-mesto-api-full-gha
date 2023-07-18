@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -24,8 +25,8 @@ app.use(cors({
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb', { autoIndex: true }).then(() => {
   console.log('Connected to database!');
 });
-app.use(limiter);
 app.use(requestLogger);
+app.use(limiter);
 app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');

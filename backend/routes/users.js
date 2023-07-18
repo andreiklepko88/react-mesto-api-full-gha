@@ -27,7 +27,7 @@ router.patch('/me/avatar', celebrate({
   body: Joi.object().keys({
     avatar: Joi.string().pattern(regexUrl).required(),
   }),
-}), updateAvatar);
+}), updateProfile);
 
 router.delete('/logout', logOut);
 
