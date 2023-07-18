@@ -42,10 +42,10 @@ const deleteCard = (req, res, next) => {
       if (req.user.id !== card.owner.toString()) {
         next(new ForbiddenError('Can not delete another users card'));
       } else {
-        return Card.deleteOne(card)
+        Card.deleteOne(card)
           .then(() => {
             return res.status(OK_CODE).send({ message: 'Card deleted' });
-          });
+          }).catch(next);
       }
     },
   ).catch(next);
