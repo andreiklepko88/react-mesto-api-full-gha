@@ -100,10 +100,9 @@ const login = (req, res, next) => {
           }
           const token = jwt.sign({ id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'some-secret-key', { expiresIn: '7d' });
           res.cookie('jwt', token, {
-            maxAge: 64000000,
+            maxAge: 604800000,
             httpOnly: true,
-            sameSite: 'None',
-            secure: true,
+            sameSite: true,
           });
           return res.status(OK_CODE).send({ token });
         });
@@ -160,8 +159,7 @@ const updateAvatar = (req, res, next) => {
 const logOut = (req, res) => {
   res.status(OK_CODE)
     .clearCookie('jwt', {
-      sameSite: 'None',
-      secure: true,
+      sameSite: true,
     })
     .send({ message: 'Logged out successfully' });
 };
