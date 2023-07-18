@@ -16,9 +16,6 @@ const { NODE_ENV, JWT_SECRET } = process.env;
 const getUsers = (req, res, next) => {
   User.find({})
     .then((users) => {
-      if (!users) {
-        throw new NotFoundError('Not found');
-      }
       res.status(OK_CODE).send(users);
     })
     .catch(next);
@@ -44,7 +41,7 @@ const getUserById = (req, res, next) => {
         res.status(OK_CODE).send(user);
       }
     }).catch((err) => {
-      if (!req.params.userId.isValid) {
+      if (err.name === 'CastError') {
         next(new BadRequestError('Incorrect Id number'));
       } else {
         next(err);
@@ -133,29 +130,6 @@ const updateProfile = (req, res, next) => {
     });
 };
 
-const updateAvatar = (req, res, next) => {
-  return User.findByIdAndUpdate(
-    req.user.id,
-    req.body,
-    {
-      runValidators: true,
-      new: true,
-    },
-  )
-    .then((user) => {
-      if (!user) {
-        throw new NotFoundError('Not found');
-      }
-      res.status(OK_CODE).send(user);
-    })
-    .catch((err) => {
-      if (err.name === 'ValidationError') {
-        return next(new BadRequestError(`${Object.values(err.errors).map((error) => error.message).join('. ')}`));
-      }
-      return next(err);
-    });
-};
-
 const logOut = (req, res) => {
   res.status(OK_CODE)
     .clearCookie('jwt', {
@@ -165,5 +139,5 @@ const logOut = (req, res) => {
 };
 
 module.exports = {
-  getUsers, getUserById, createUser, updateProfile, updateAvatar, login, logOut, getUserInfo,
+  getUsers, getUserById, createUser, updateProfile, login, logOut, getUserInfo,
 };

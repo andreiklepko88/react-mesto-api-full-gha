@@ -42,7 +42,7 @@ const deleteCard = (req, res, next) => {
       if (req.user.id !== card.owner.toString()) {
         next(new ForbiddenError('Can not delete another users card'));
       } else {
-        Card.deleteOne(card)
+        return Card.deleteOne(card)
           .then(() => {
             return res.status(OK_CODE).send({ message: 'Card deleted' });
           });
@@ -64,7 +64,7 @@ const likeCard = (req, res, next) => {
     }
   })
     .catch((err) => {
-      if (!req.params.cardId.isValid) {
+      if (err.name === 'CastError') {
         next(new BadRequestError('Incorrect Id number'));
       } else {
         next(err);
@@ -85,7 +85,7 @@ const dislikeCard = (req, res, next) => {
     }
   })
     .catch((err) => {
-      if (!req.params.cardId.isValid) {
+      if (err.name === 'CastError') {
         next(new BadRequestError('Incorrect Id number'));
       } else {
         next(err);
