@@ -11,13 +11,13 @@ const errorHandler = require('./middlewares/error-handler');
 const limiter = require('./middlewares/rate-limiter');
 
 const app = express();
-const { PORT = 4000 } = process.env;
+const { PORT = 3000 } = process.env;
 
 app.use(helmet());
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: 'https://mestoproject-klepkoas.nomoredomains.xyz',
   credentials: true,
 }));
 

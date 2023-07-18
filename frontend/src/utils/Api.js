@@ -99,7 +99,7 @@ class Api {
 }
 
 export const api = new Api({
-  baseUrl: `https://api.mestoproject-klepkoas.nomoredomains.xyz`,
+  baseUrl: 'https://api.mestoproject-klepkoas.nomoredomains.xyz',
   headers: {
     "Content-Type": "application/json"
   }
