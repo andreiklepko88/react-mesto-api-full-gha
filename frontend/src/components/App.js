@@ -206,8 +206,8 @@ export default function App() {
               onCardLike={handleCardLike}
             />} />
             <Route path="/" element={isLoggedIn ? <Navigate to="/main" replace /> : <Navigate to="/login" replace />} />
-            <Route path="/login" element={<Login handleLogin={handleLogin} />} />
-            <Route path="/register" element={<Register handleRegister={handleRegister} />} />
+            <Route path="/login" element={isLoggedIn ? <Navigate to="/main" replace /> : <Navigate to="/login" replace />} />
+            <Route path="/register" element={isLoggedIn ? <Navigate to="/main" replace /> : <Navigate to="/register" replace />} />
             <Route path="*" element={isLoggedIn ? <Navigate to="/main" replace /> : <Navigate to="/login" replace />} />
           </Routes>
           <Footer />

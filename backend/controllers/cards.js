@@ -8,11 +8,8 @@ const {
 } = require('../utils/constants');
 
 const getCards = (req, res, next) => {
-  return Card.find({})
+  return Card.find({}).sort({ createdAt: -1 })
     .then((cards) => {
-      if (!cards) {
-        next(new NotFoundError('Not found'));
-      }
       res.status(OK_CODE).send(cards);
     })
     .catch(next);
