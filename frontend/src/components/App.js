@@ -129,7 +129,7 @@ export default function App() {
     mestoApi.login(email, password)
       .then(() => {
         setLoggedIn(true);
-        navigate('/cards');
+        navigate('/main');
       })
       .catch((err) => console.log(err))
   }
@@ -206,8 +206,8 @@ export default function App() {
               onCardLike={handleCardLike}
             />} />
             <Route path="/" element={isLoggedIn ? <Navigate to="/main" replace /> : <Navigate to="/login" replace />} />
-            <Route path="/login" element={isLoggedIn ? <Navigate to="/main" replace /> : <Navigate to="/login" replace />} />
-            <Route path="/register" element={isLoggedIn ? <Navigate to="/main" replace /> : <Navigate to="/register" replace />} />
+            <Route path="/login" element={isLoggedIn ? <Navigate to="/main" replace /> : <Login handleLogin={handleLogin} />} />
+            <Route path="/register" element={isLoggedIn ? <Navigate to="/main" replace /> : <Register handleRegister={handleRegister} />} />
             <Route path="*" element={isLoggedIn ? <Navigate to="/main" replace /> : <Navigate to="/login" replace />} />
           </Routes>
           <Footer />
