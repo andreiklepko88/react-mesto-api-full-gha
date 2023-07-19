@@ -35,8 +35,7 @@ const deleteCard = (req, res, next) => {
     (card) => {
       if (!card) {
         next(new NotFoundError('Card not found'));
-      }
-      if (req.user.id !== card.owner.toString()) {
+      } else if (req.user.id !== card.owner.toString()) {
         next(new ForbiddenError('Can not delete another users card'));
       } else {
         Card.deleteOne(card)
