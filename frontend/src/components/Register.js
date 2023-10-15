@@ -19,7 +19,7 @@ export default function Register({ handleRegister }) {
         setFormValue({
             ...formValue,
             [name]: value
-        })
+        }) 
     }
 
     return (
