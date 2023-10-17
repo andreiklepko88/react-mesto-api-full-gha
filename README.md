@@ -6,9 +6,9 @@
 
 Стек: React, JavaScript, HTML, CSS, Git, JSON Web Token (JWT), MongoDB, Express.js, Njinx, Git, JSON Web Token (JWT), NodeJS.
 
-Адрес репозитория: https://github.com/andreiklepko88/react-mesto-api-full-gha
-Фронтенд часть: https://github.com/andreiklepko88/react-mesto-api-full-gha/tree/main/frontend
-Бэкенд часть: https://github.com/andreiklepko88/react-mesto-api-full-gha/tree/main/backend
+Адрес репозитория: https://github.com/andreiklepko88/react-mesto-api-full-gha  
+Фронтенд часть: https://github.com/andreiklepko88/react-mesto-api-full-gha/tree/main/frontend  
+Бэкенд часть: https://github.com/andreiklepko88/react-mesto-api-full-gha/tree/main/backend  
 
 ## Ссылки на проект
 
